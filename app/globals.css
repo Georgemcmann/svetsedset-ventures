@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #152a52;
+  --color-navy-deep: #0d1c3a;
+  --color-copper: #c98a63;
+  --color-copper-light: #e3b593;
+  /* Darker copper for text on light backgrounds — #c98a63 only hits ~2.8:1
+     contrast on paper/white and fails WCAG AA for text. This variant passes. */
+  --color-copper-text: #966033;
+  --color-silver: #b9bfc8;
+  --color-paper: #faf9f6;
+  --color-ink: #1c2230;
+  --color-ink-soft: #5b6270;
+  --color-line: #e4e1da;
+
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-manrope), Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.brand-stripe {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-navy) 0%,
+    var(--color-navy) 33%,
+    var(--color-silver) 33%,
+    var(--color-silver) 66%,
+    var(--color-copper) 66%,
+    var(--color-copper) 100%
+  );
+}
