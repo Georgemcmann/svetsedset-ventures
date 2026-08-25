@@ -450,48 +450,7 @@ export default function Hero() {
               </small>
             </div>
 
-            {/* Founded */}
-            <div
-              className="
-                min-w-0
-                border-l
-                border-white/15
-                px-2
-                py-4
-                sm:px-3
-              "
-            >
-              <b
-                className="
-                  block
-                  font-display
-                  text-[21px]
-                  leading-none
-                  sm:text-[24px]
-                  md:text-[26px]
-                "
-              >
-                {siteConfig.founded}
-              </b>
-
-              <small
-                className="
-                  mt-1.5
-                  block
-                  text-[8px]
-                  uppercase
-                  leading-4
-                  tracking-[0.06em]
-                  text-white/60
-                  min-[375px]:text-[9px]
-                  sm:text-[10px]
-                  sm:tracking-wide
-                "
-              >
-                Incorporated
-              </small>
-            </div>
-
+        
             {/* Location */}
             <div
               className="
