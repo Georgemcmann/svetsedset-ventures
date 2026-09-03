@@ -17,7 +17,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.svetsedsetventures.com"),
+metadataBase: new URL("https://svetsedset-ventures.com.ng"),
 
   title: {
     default: "Svetsedset Ventures | Lagos, Nigeria",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://www.svetsedsetventures.com",
+    url: "https://svetsedset-ventures.com.ng",
     siteName: siteConfig.name,
     title: "Svetsedset Ventures | Lagos, Nigeria",
     description:
@@ -117,19 +117,19 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://www.svetsedsetventures.com/#business",
+              "@id": "https://svetsedset-ventures.com.ng/#business",
 
               name: siteConfig.name,
 
-              url: "https://www.svetsedsetventures.com",
+              url: "https://svetsedset-ventures.com.ng",
 
               logo: {
                 "@type": "ImageObject",
-                url: "https://www.svetsedsetventures.com/logo-icon.png",
+                url: "https://svetsedset-ventures.com.ng/logo-icon.png",
               },
 
               image:
-                "https://www.svetsedsetventures.com/og-image.png",
+                "https://svetsedset-ventures.com.ng/og-image.png",
 
               description:
                 "Svetsedset Ventures provides security systems, food supply, logistics and transportation, sales and branding, interior finishing, furnishing, and ground contracting services.",
