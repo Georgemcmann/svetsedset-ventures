@@ -5,8 +5,8 @@ export const siteConfig = {
   tagline: "Innovate · Empower · Excel",
   founded: "2023",
   location: "Lagos",
-  phoneDisplay: "+234 701 693 2711",
-  whatsappNumber: "2347016932711", // no + or spaces, used in wa.me links
+  phoneDisplay: "+234 803 654 8211",
+  whatsappNumber: "2348036548211", // no + or spaces, used in wa.me links
   email: "info@svetsedsetventures.com",
   address: "24 Road, Opposite 24 Carat Hotel, Festac Town, Lagos, Nigeria",
   mapsEmbedUrl: "https://www.google.com/maps?q=Festac+Town,+Lagos,+Nigeria&output=embed",
@@ -30,6 +30,7 @@ export const divisions = [
     slug: "security-systems",
     icon: "security",
     title: "Security Systems",
+    image: "/img6.png",
     shortTitle: "Security",
     description:
       "CCTV, surveillance and access-control solutions for homes, offices, shops, warehouses and commercial properties.",
@@ -57,6 +58,7 @@ export const divisions = [
     number: "02",
     slug: "food-supply",
     icon: "food",
+    image: "/img.png",
     title: "Food Supply",
     shortTitle: "Food Supply",
     description:
@@ -84,6 +86,7 @@ export const divisions = [
     number: "03",
     slug: "logistics",
     icon: "logistics",
+    image: "/img7.png",
     title: "Logistics & Transportation",
     shortTitle: "Logistics",
     description:
@@ -138,6 +141,7 @@ export const divisions = [
     number: "05",
     slug: "interior-finishing",
     icon: "interior",
+    image: "/img8.png",
     title: "Interior Finishing",
     shortTitle: "Interior",
     description:
@@ -165,6 +169,7 @@ export const divisions = [
     number: "06",
     slug: "ground-contracting",
     icon: "contracting",
+    image: "/img9.png",
     title: "Ground Contracting",
     shortTitle: "Contracting",
     description:
@@ -192,6 +197,7 @@ export const divisions = [
     number: "07",
     slug: "furnishing",
     icon: "furnishing",
+    image: "/img5.png",
     title: "Furnishing",
     shortTitle: "Furnishing",
     description:

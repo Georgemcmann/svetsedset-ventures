@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  divisions,
-  siteConfig,
-  whatsappLink,
-} from "@/lib/siteConfig";
+import { divisions, siteConfig, whatsappLink } from "@/lib/siteConfig";
 import DivisionIcon from "@/components/DivisionIcon";
 
 type PageProps = {
@@ -52,8 +48,7 @@ export async function generateMetadata({
   if (!division) {
     return {
       title: "Division Not Found | Svetsedset Ventures",
-      description:
-        "The requested division could not be found.",
+      description: "The requested division could not be found.",
     };
   }
 
@@ -78,9 +73,7 @@ export async function generateMetadata({
 |--------------------------------------------------------------------------
 */
 
-export default async function DivisionPage({
-  params,
-}: PageProps) {
+export default async function DivisionPage({ params }: PageProps) {
   const { slug } = await params;
 
   const division = getDivision(slug);
@@ -94,20 +87,45 @@ export default async function DivisionPage({
       {/* =========================
     HERO
 ========================== */}
-<section
-  aria-labelledby="division-heading"
-  className="
+      <section
+        aria-labelledby="division-heading"
+        className="
     relative
     overflow-hidden
     border-b
     border-line
     bg-paper
   "
->
-  {/* Glossy background */}
-  <div
-    aria-hidden="true"
-    className="
+      >
+        {division.image && (
+          <div
+            aria-hidden="true"
+            className="
+        pointer-events-none
+        absolute
+        inset-0
+        bg-cover
+        bg-center
+        opacity-100
+      "
+            style={{ backgroundImage: `url("${division.image}")` }}
+          />
+        )}
+
+        <div
+          aria-hidden="true"
+          className="
+      pointer-events-none
+      absolute
+      inset-0
+      bg-[linear-gradient(90deg,rgba(7,18,38,0.64)_0%,rgba(9,21,45,0.48)_38%,rgba(13,28,58,0.68)_68%,rgba(13,28,58,0.52)_100%)]
+    "
+        />
+
+        {/* Glossy background */}
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -right-32
@@ -118,11 +136,11 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(180,116,65,0.12)_0%,rgba(180,116,65,0.045)_38%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    aria-hidden="true"
-    className="
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -left-40
@@ -133,12 +151,12 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(13,28,58,0.08)_0%,rgba(13,28,58,0.025)_40%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  {/* Subtle glass highlight */}
-  <div
-    aria-hidden="true"
-    className="
+        {/* Subtle glass highlight */}
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       inset-x-0
@@ -150,10 +168,10 @@ export default async function DivisionPage({
       to-transparent
       opacity-80
     "
-  />
+        />
 
-  <div
-    className="
+        <div
+          className="
       relative
       mx-auto
       max-w-295
@@ -165,11 +183,11 @@ export default async function DivisionPage({
       lg:px-8
       lg:py-24
     "
-  >
-    {/* Back link */}
-    <Link
-      href="/#divisions"
-      className="
+        >
+          {/* Back link */}
+          <Link
+            href="/#divisions"
+            className="
         mb-8
         inline-flex
         items-center
@@ -179,47 +197,47 @@ export default async function DivisionPage({
         py-1
         text-[13px]
         font-semibold
-        text-ink-soft
+        text-white/80
         transition-all
         duration-200
         hover:-translate-x-0.5
-        hover:text-copper-text
+        hover:text-copper-light
         focus-visible:outline-none
         focus-visible:ring-2
-        focus-visible:ring-copper-text
+        focus-visible:ring-copper-light
         focus-visible:ring-offset-4
       "
-    >
-      <span aria-hidden="true">←</span>
-      All Divisions
-    </Link>
+          >
+            <span aria-hidden="true">←</span>
+            All Divisions
+          </Link>
 
-    <div className="max-w-180">
-      {/* Division label */}
-      <div className="mb-5 flex items-center gap-4">
-        <span className="font-display text-[14px] italic text-copper-text">
-          {division.number}
-        </span>
+          <div className="max-w-180">
+            {/* Division label */}
+            <div className="mb-5 flex items-center gap-4">
+              <span className="font-display text-[14px] italic text-copper-light">
+                {division.number}
+              </span>
 
-        <span
-          aria-hidden="true"
-          className="
+              <span
+                aria-hidden="true"
+                className="
             h-px
             w-10
             bg-copper
             shadow-[0_0_10px_rgba(180,116,65,0.25)]
           "
-        />
+              />
 
-        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-copper-text">
-          {division.title}
-        </span>
-      </div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-copper-light">
+                {division.title}
+              </span>
+            </div>
 
-      {/* Glass Icon */}
-      <div
-        aria-hidden="true"
-        className="
+            {/* Glass Icon */}
+            <div
+              aria-hidden="true"
+              className="
           group
           relative
           mb-7
@@ -241,10 +259,10 @@ export default async function DivisionPage({
           hover:border-copper/30
           hover:shadow-[0_18px_40px_-18px_rgba(180,116,65,0.35)]
         "
-      >
-        {/* Glass shine */}
-        <span
-          className="
+            >
+              {/* Glass shine */}
+              <span
+                className="
             absolute
             inset-0
             bg-linear-to-br
@@ -252,10 +270,10 @@ export default async function DivisionPage({
             via-transparent
             to-transparent
           "
-        />
+              />
 
-        <span
-          className="
+              <span
+                className="
             absolute
             -right-3
             -top-3
@@ -265,11 +283,11 @@ export default async function DivisionPage({
             bg-copper/10
             blur-md
           "
-        />
+              />
 
-        <DivisionIcon
-          name={division.icon}
-          className="
+              <DivisionIcon
+                name={division.icon}
+                className="
             relative
             h-7
             w-7
@@ -279,13 +297,13 @@ export default async function DivisionPage({
             group-hover:text-copper-text
             group-hover:scale-105
           "
-        />
-      </div>
+              />
+            </div>
 
-      {/* Heading */}
-      <h1
-        id="division-heading"
-        className="
+            {/* Heading */}
+            <h1
+              id="division-heading"
+              className="
           mb-5
           max-w-175
           font-display
@@ -293,35 +311,36 @@ export default async function DivisionPage({
           font-bold
           leading-[1.06]
           tracking-tight
-          text-navy-deep
+          text-white
+          drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
         "
-      >
-        {division.title}
-      </h1>
+            >
+              {division.title}
+            </h1>
 
-      {/* Intro */}
-      <p
-        className="
+            {/* Intro */}
+            <p
+              className="
           max-w-165
           text-[16px]
           leading-7
-          text-ink-soft
+          text-white/75
           sm:text-[17px]
         "
-      >
-        {division.intro}
-      </p>
+            >
+              {division.intro}
+            </p>
 
-      {/* CTA */}
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={whatsappLink(
-            `Hello ${siteConfig.name}, I'd like to enquire about your ${division.title} services.`
-          )}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Request a quote for ${division.title}`}
-          className="
+            {/* CTA */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={whatsappLink(
+                  `Hello ${siteConfig.name}, I'd like to enquire about your ${division.title} services.`,
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Request a quote for ${division.title}`}
+                className="
             group
             relative
             inline-flex
@@ -349,11 +368,11 @@ export default async function DivisionPage({
             focus-visible:ring-navy
             focus-visible:ring-offset-2
           "
-        >
-          {/* Button shine */}
-          <span
-            aria-hidden="true"
-            className="
+              >
+                {/* Button shine */}
+                <span
+                  aria-hidden="true"
+                  className="
               absolute
               inset-0
               -translate-x-full
@@ -365,67 +384,66 @@ export default async function DivisionPage({
               duration-700
               group-hover:translate-x-full
             "
-          />
+                />
 
-          <span className="relative">
-            Request a Quote
-          </span>
-        </a>
+                <span className="relative">Request a Quote</span>
+              </a>
 
-        <Link
-          href="/#contact"
-          className="
+              <Link
+                href="/#contact"
+                className="
             inline-flex
             min-h-12
             items-center
             justify-center
             rounded-sm
             border
-            border-navy/20
-            bg-white/45
+            border-white/50
+            bg-white/10
             px-6
             py-3
             text-[14px]
             font-bold
-            text-navy
+            text-white
             shadow-[0_8px_24px_-20px_rgba(13,28,58,0.35)]
             backdrop-blur-md
             transition-all
             duration-300
             hover:-translate-y-0.5
-            hover:border-navy
-            hover:bg-white/75
+            hover:border-white
+            hover:bg-white
+            hover:text-navy
             hover:shadow-[0_12px_28px_-18px_rgba(13,28,58,0.35)]
             focus-visible:outline-none
             focus-visible:ring-2
-            focus-visible:ring-navy
+            focus-visible:ring-white
             focus-visible:ring-offset-2
           "
-        >
-          Contact Us
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =========================
     SERVICES
 ========================== */}
-<section
-  aria-labelledby="services-heading"
-  className="
+      <section
+        aria-labelledby="services-heading"
+        className="
     relative
     overflow-hidden
     border-b
     border-line
     bg-white
   "
->
-  {/* Glossy background */}
-  <div
-    aria-hidden="true"
-    className="
+      >
+        {/* Glossy background */}
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -left-40
@@ -436,11 +454,11 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(180,116,65,0.09)_0%,rgba(180,116,65,0.03)_38%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    aria-hidden="true"
-    className="
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -right-40
@@ -451,10 +469,10 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(13,28,58,0.07)_0%,rgba(13,28,58,0.025)_40%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    className="
+        <div
+          className="
       relative
       mx-auto
       max-w-295
@@ -466,12 +484,12 @@ export default async function DivisionPage({
       lg:px-8
       lg:py-24
     "
-  >
-    <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-      {/* Section heading */}
-      <div className="md:sticky md:top-28 md:self-start">
-        <span
-          className="
+        >
+          <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+            {/* Section heading */}
+            <div className="md:sticky md:top-28 md:self-start">
+              <span
+                className="
             mb-3
             block
             text-[11px]
@@ -480,13 +498,13 @@ export default async function DivisionPage({
             tracking-[0.18em]
             text-copper-text
           "
-        >
-          What We Offer
-        </span>
+              >
+                What We Offer
+              </span>
 
-        <h2
-          id="services-heading"
-          className="
+              <h2
+                id="services-heading"
+                className="
             max-w-120
             font-display
             text-[28px]
@@ -496,13 +514,13 @@ export default async function DivisionPage({
             text-navy-deep
             sm:text-[34px]
           "
-        >
-          Services designed around the job.
-        </h2>
+              >
+                Services designed around the job.
+              </h2>
 
-        <div
-          aria-hidden="true"
-          className="
+              <div
+                aria-hidden="true"
+                className="
             mt-6
             h-0.75
             w-10
@@ -510,15 +528,15 @@ export default async function DivisionPage({
             bg-copper
             shadow-[0_0_12px_rgba(180,116,65,0.25)]
           "
-        />
-      </div>
+              />
+            </div>
 
-      {/* Services */}
-      <div className="grid gap-3 sm:grid-cols-2">
-        {division.services.map((service, index) => (
-          <article
-            key={service}
-            className="
+            {/* Services */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              {division.services.map((service, index) => (
+                <article
+                  key={service}
+                  className="
               group
               relative
               overflow-hidden
@@ -537,11 +555,11 @@ export default async function DivisionPage({
               hover:shadow-[0_18px_35px_-20px_rgba(13,28,58,0.25)]
               sm:p-6
             "
-          >
-            {/* Glass highlight */}
-            <span
-              aria-hidden="true"
-              className="
+                >
+                  {/* Glass highlight */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 pointer-events-none
                 absolute
                 inset-x-0
@@ -553,12 +571,12 @@ export default async function DivisionPage({
                 to-transparent
                 opacity-80
               "
-            />
+                  />
 
-            {/* Copper glow */}
-            <span
-              aria-hidden="true"
-              className="
+                  {/* Copper glow */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 pointer-events-none
                 absolute
                 -right-8
@@ -572,12 +590,12 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:opacity-100
               "
-            />
+                  />
 
-            {/* Number */}
-            <span
-              aria-hidden="true"
-              className="
+                  {/* Number */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 relative
                 mb-5
                 block
@@ -589,14 +607,14 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:translate-x-1
               "
-            >
-              {String(index + 1).padStart(2, "0")}
-            </span>
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-            {/* Accent */}
-            <span
-              aria-hidden="true"
-              className="
+                  {/* Accent */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 mb-4
                 block
                 h-0.75
@@ -607,10 +625,10 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:w-11
               "
-            />
+                  />
 
-            <h3
-              className="
+                  <h3
+                    className="
                 relative
                 text-[15px]
                 font-semibold
@@ -620,14 +638,14 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:text-navy
               "
-            >
-              {service}
-            </h3>
+                  >
+                    {service}
+                  </h3>
 
-            {/* Bottom hover line */}
-            <span
-              aria-hidden="true"
-              className="
+                  {/* Bottom hover line */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 absolute
                 bottom-0
                 left-0
@@ -638,31 +656,31 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:w-full
               "
-            />
-          </article>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =========================
     IDEAL FOR
 ========================== */}
-<section
-  aria-labelledby="ideal-for-heading"
-  className="
+      <section
+        aria-labelledby="ideal-for-heading"
+        className="
     relative
     overflow-hidden
     border-b
     border-line
     bg-paper
   "
->
-  {/* Glossy background */}
-  <div
-    aria-hidden="true"
-    className="
+      >
+        {/* Glossy background */}
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -right-48
@@ -673,11 +691,11 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(180,116,65,0.10)_0%,rgba(180,116,65,0.035)_40%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    aria-hidden="true"
-    className="
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -bottom-56
@@ -688,10 +706,10 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(13,28,58,0.07)_0%,rgba(13,28,58,0.025)_40%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    className="
+        <div
+          className="
       relative
       mx-auto
       max-w-295
@@ -703,12 +721,12 @@ export default async function DivisionPage({
       lg:px-8
       lg:py-24
     "
-  >
-    <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-      {/* Heading */}
-      <div className="md:sticky md:top-28 md:self-start">
-        <span
-          className="
+        >
+          <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+            {/* Heading */}
+            <div className="md:sticky md:top-28 md:self-start">
+              <span
+                className="
             mb-3
             block
             text-[11px]
@@ -717,13 +735,13 @@ export default async function DivisionPage({
             tracking-[0.18em]
             text-copper-text
           "
-        >
-          Who We Serve
-        </span>
+              >
+                Who We Serve
+              </span>
 
-        <h2
-          id="ideal-for-heading"
-          className="
+              <h2
+                id="ideal-for-heading"
+                className="
             max-w-120
             font-display
             text-[28px]
@@ -733,13 +751,13 @@ export default async function DivisionPage({
             text-navy-deep
             sm:text-[34px]
           "
-        >
-          Built for businesses and projects like yours.
-        </h2>
+              >
+                Built for businesses and projects like yours.
+              </h2>
 
-        <div
-          aria-hidden="true"
-          className="
+              <div
+                aria-hidden="true"
+                className="
             mt-6
             h-0.75
             w-10
@@ -747,15 +765,15 @@ export default async function DivisionPage({
             bg-copper
             shadow-[0_0_12px_rgba(180,116,65,0.25)]
           "
-        />
-      </div>
+              />
+            </div>
 
-      {/* Ideal clients */}
-      <div className="grid gap-3 sm:grid-cols-2">
-        {division.idealFor.map((client, index) => (
-          <article
-            key={client}
-            className="
+            {/* Ideal clients */}
+            <div className="grid gap-3 sm:grid-cols-2">
+              {division.idealFor.map((client, index) => (
+                <article
+                  key={client}
+                  className="
               group
               relative
               overflow-hidden
@@ -773,11 +791,11 @@ export default async function DivisionPage({
               hover:shadow-[0_18px_35px_-22px_rgba(13,28,58,0.3)]
               sm:p-6
             "
-          >
-            {/* Glass highlight */}
-            <span
-              aria-hidden="true"
-              className="
+                >
+                  {/* Glass highlight */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 pointer-events-none
                 absolute
                 inset-x-0
@@ -788,13 +806,13 @@ export default async function DivisionPage({
                 via-white
                 to-transparent
               "
-            />
+                  />
 
-            {/* Number */}
-            <div className="mb-6 flex items-center justify-between">
-              <span
-                aria-hidden="true"
-                className="
+                  {/* Number */}
+                  <div className="mb-6 flex items-center justify-between">
+                    <span
+                      aria-hidden="true"
+                      className="
                   font-display
                   text-[13px]
                   italic
@@ -803,14 +821,14 @@ export default async function DivisionPage({
                   duration-300
                   group-hover:translate-x-1
                 "
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-              {/* Small arrow */}
-              <span
-                aria-hidden="true"
-                className="
+                    {/* Small arrow */}
+                    <span
+                      aria-hidden="true"
+                      className="
                   flex
                   h-7
                   w-7
@@ -827,13 +845,13 @@ export default async function DivisionPage({
                   group-hover:bg-copper/5
                   group-hover:translate-x-1
                 "
-              >
-                →
-              </span>
-            </div>
+                    >
+                      →
+                    </span>
+                  </div>
 
-            <h3
-              className="
+                  <h3
+                    className="
                 font-display
                 text-[16px]
                 font-semibold
@@ -843,14 +861,14 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:text-navy
               "
-            >
-              {client}
-            </h3>
+                  >
+                    {client}
+                  </h3>
 
-            {/* Bottom accent */}
-            <span
-              aria-hidden="true"
-              className="
+                  {/* Bottom accent */}
+                  <span
+                    aria-hidden="true"
+                    className="
                 absolute
                 bottom-0
                 left-0
@@ -861,31 +879,31 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:w-full
               "
-            />
-          </article>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =========================
     WHY WORK WITH US
 ========================== */}
-<section
-  aria-labelledby="why-heading"
-  className="
+      <section
+        aria-labelledby="why-heading"
+        className="
     relative
     overflow-hidden
     border-b
     border-line
     bg-white
   "
->
-  {/* Glossy background */}
-  <div
-    aria-hidden="true"
-    className="
+      >
+        {/* Glossy background */}
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       left-1/2
@@ -897,11 +915,11 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(180,116,65,0.10)_0%,rgba(180,116,65,0.035)_40%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    aria-hidden="true"
-    className="
+        <div
+          aria-hidden="true"
+          className="
       pointer-events-none
       absolute
       -bottom-48
@@ -912,10 +930,10 @@ export default async function DivisionPage({
       bg-[radial-gradient(circle,rgba(13,28,58,0.07)_0%,rgba(13,28,58,0.025)_40%,transparent_72%)]
       blur-3xl
     "
-  />
+        />
 
-  <div
-    className="
+        <div
+          className="
       relative
       mx-auto
       max-w-295
@@ -927,11 +945,11 @@ export default async function DivisionPage({
       lg:px-8
       lg:py-24
     "
-  >
-    {/* Heading */}
-    <div className="mb-10 max-w-165 sm:mb-12 md:mb-14">
-      <span
-        className="
+        >
+          {/* Heading */}
+          <div className="mb-10 max-w-165 sm:mb-12 md:mb-14">
+            <span
+              className="
           mb-3
           block
           text-[11px]
@@ -940,13 +958,13 @@ export default async function DivisionPage({
           tracking-[0.18em]
           text-copper-text
         "
-      >
-        Why Work With Us
-      </span>
+            >
+              Why Work With Us
+            </span>
 
-      <h2
-        id="why-heading"
-        className="
+            <h2
+              id="why-heading"
+              className="
           mb-6
           max-w-150
           font-display
@@ -957,32 +975,32 @@ export default async function DivisionPage({
           text-navy-deep
           sm:text-[34px]
         "
-      >
-        One standard across every division.
-      </h2>
+            >
+              One standard across every division.
+            </h2>
 
-      <div
-        aria-hidden="true"
-        className="
+            <div
+              aria-hidden="true"
+              className="
           h-0.75
           w-10
           rounded-sm
           bg-copper
           shadow-[0_0_12px_rgba(180,116,65,0.25)]
         "
-      />
-    </div>
+            />
+          </div>
 
-    {/* Trust points */}
-    <div className="grid gap-4 sm:grid-cols-3">
-      {[
-        "Solutions selected around the actual requirements of your project.",
-        "Clear communication from initial enquiry through completion.",
-        "The ability to coordinate multiple services through one company.",
-      ].map((item, index) => (
-        <article
-          key={item}
-          className="
+          {/* Trust points */}
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              "Solutions selected around the actual requirements of your project.",
+              "Clear communication from initial enquiry through completion.",
+              "The ability to coordinate multiple services through one company.",
+            ].map((item, index) => (
+              <article
+                key={item}
+                className="
             group
             relative
             overflow-hidden
@@ -1001,11 +1019,11 @@ export default async function DivisionPage({
             hover:shadow-[0_20px_40px_-22px_rgba(13,28,58,0.28)]
             sm:p-7
           "
-        >
-          {/* Glass highlight */}
-          <span
-            aria-hidden="true"
-            className="
+              >
+                {/* Glass highlight */}
+                <span
+                  aria-hidden="true"
+                  className="
               pointer-events-none
               absolute
               inset-x-0
@@ -1016,12 +1034,12 @@ export default async function DivisionPage({
               via-white
               to-transparent
             "
-          />
+                />
 
-          {/* Glow */}
-          <span
-            aria-hidden="true"
-            className="
+                {/* Glow */}
+                <span
+                  aria-hidden="true"
+                  className="
               pointer-events-none
               absolute
               -right-10
@@ -1035,21 +1053,21 @@ export default async function DivisionPage({
               duration-500
               group-hover:scale-125
             "
-          />
+                />
 
-          {/* Number */}
-          <div
-            className="
+                {/* Number */}
+                <div
+                  className="
               relative
               mb-7
               flex
               items-center
               justify-between
             "
-          >
-            <span
-              aria-hidden="true"
-              className="
+                >
+                  <span
+                    aria-hidden="true"
+                    className="
                 font-display
                 text-[14px]
                 italic
@@ -1058,13 +1076,13 @@ export default async function DivisionPage({
                 duration-300
                 group-hover:translate-x-1
               "
-            >
-              {String(index + 1).padStart(2, "0")}
-            </span>
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-            <span
-              aria-hidden="true"
-              className="
+                  <span
+                    aria-hidden="true"
+                    className="
                 h-8
                 w-8
                 rounded-full
@@ -1076,13 +1094,13 @@ export default async function DivisionPage({
                 group-hover:border-copper/30
                 group-hover:bg-copper/5
               "
-            />
-          </div>
+                  />
+                </div>
 
-          {/* Accent */}
-          <span
-            aria-hidden="true"
-            className="
+                {/* Accent */}
+                <span
+                  aria-hidden="true"
+                  className="
               mb-5
               block
               h-0.75
@@ -1093,10 +1111,10 @@ export default async function DivisionPage({
               duration-300
               group-hover:w-12
             "
-          />
+                />
 
-          <p
-            className="
+                <p
+                  className="
               relative
               text-[14px]
               leading-6.5
@@ -1105,14 +1123,14 @@ export default async function DivisionPage({
               duration-300
               group-hover:text-ink
             "
-          >
-            {item}
-          </p>
+                >
+                  {item}
+                </p>
 
-          {/* Bottom accent */}
-          <span
-            aria-hidden="true"
-            className="
+                {/* Bottom accent */}
+                <span
+                  aria-hidden="true"
+                  className="
               absolute
               bottom-0
               left-0
@@ -1123,12 +1141,12 @@ export default async function DivisionPage({
               duration-300
               group-hover:w-full
             "
-          />
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+                />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* =========================================================
           BOTTOM CTA
@@ -1205,7 +1223,7 @@ export default async function DivisionPage({
 
             <a
               href={whatsappLink(
-                `Hello ${siteConfig.name}, I'd like to discuss a ${division.title.toLowerCase()} project.`
+                `Hello ${siteConfig.name}, I'd like to discuss a ${division.title.toLowerCase()} project.`,
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -1256,9 +1274,7 @@ export default async function DivisionPage({
                 "
               />
 
-              <span className="relative">
-                Talk to Us
-              </span>
+              <span className="relative">Talk to Us</span>
             </a>
           </div>
         </div>

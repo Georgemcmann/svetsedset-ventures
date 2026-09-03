@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { divisions, siteConfig, whatsappLink } from "@/lib/siteConfig";
 
 export default function Hero() {
@@ -8,7 +9,6 @@ export default function Hero() {
         relative
         isolate
         overflow-hidden
-        bg-[linear-gradient(120deg,#f8f6f1_0%,#f5f2ec_42%,#ebe9e4_100%)]
         py-12
         sm:py-14
         md:py-18
@@ -17,24 +17,33 @@ export default function Hero() {
       "
     >
       {/* =========================
-          PREMIUM BACKGROUND
+          FULL HERO BACKGROUND
       ========================== */}
 
-      {/* Main navy atmospheric gradient */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/img3.png"
+          alt="Svetsedset Ventures"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+
+      {/* Main dark overlay */}
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          inset-y-0
-          right-0
+          inset-0
           -z-10
-          w-[75%]
-          bg-[radial-gradient(circle_at_80%_45%,rgba(13,28,58,0.13),transparent_58%)]
+          bg-[linear-gradient(90deg,rgba(7,18,38,0.64)_0%,rgba(9,21,45,0.48)_38%,rgba(13,28,58,0.68)_68%,rgba(13,28,58,0.52)_100%)]
         "
       />
 
-      {/* Copper atmospheric glow */}
+      {/* Subtle top atmospheric glow */}
       <div
         aria-hidden="true"
         className="
@@ -46,55 +55,24 @@ export default function Hero() {
           h-120
           w-120
           rounded-full
-          bg-[radial-gradient(circle,rgba(180,116,65,0.16),transparent_68%)]
+          bg-[radial-gradient(circle,rgba(180,116,65,0.18),transparent_68%)]
           blur-2xl
         "
       />
 
-      {/* Soft navy glow behind content */}
+      {/* Soft bottom fade */}
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          -left-48
-          -bottom-48
+          inset-x-0
+          bottom-0
           -z-10
-          h-130
-          w-130
-          rounded-full
-          bg-[radial-gradient(circle,rgba(13,28,58,0.10),transparent_68%)]
-          blur-3xl
-        "
-      />
-
-      {/* Fine diagonal light gradient */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          -z-10
-          bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.45)_42%,transparent_70%)]
-        "
-      />
-
-      {/* Subtle premium glow around the card */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          right-[8%]
-          top-1/2
-          -z-10
-          h-100
-          w-100
-          -translate-y-1/2
-          rounded-full
-          bg-copper/5
-          blur-3xl
+          h-40
+          bg-linear-to-t
+          from-navy-deep/80
+          to-transparent
         "
       />
 
@@ -119,6 +97,7 @@ export default function Hero() {
         {/* =========================
             HERO CONTENT
         ========================== */}
+
         <div className="relative w-full max-w-2xl">
           {/* Small decorative line */}
           <div
@@ -143,7 +122,7 @@ export default function Hero() {
               font-bold
               uppercase
               tracking-[0.16em]
-              text-copper-text
+              text-copper-light
               sm:text-[11px]
               sm:tracking-[0.18em]
               md:text-[12px]
@@ -162,7 +141,8 @@ export default function Hero() {
               font-bold
               leading-[1.06]
               tracking-tight
-              text-navy-deep
+              text-white
+              drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)]
               sm:text-[clamp(2.5rem,7vw,3.5rem)]
               md:text-[clamp(2.7rem,5vw,3.7rem)]
               lg:text-[clamp(2.8rem,4.2vw,3.9rem)]
@@ -176,8 +156,8 @@ export default function Hero() {
               className="
                 font-display
                 not-italic
-                text-copper-text
-                drop-shadow-[0_3px_12px_rgba(180,116,65,0.16)]
+                text-copper-light
+                drop-shadow-[0_3px_12px_rgba(180,116,65,0.30)]
               "
             >
               trust.
@@ -191,17 +171,17 @@ export default function Hero() {
               max-w-142.5
               text-[15px]
               leading-6.5
-              text-ink-soft
+              text-white/75
               sm:text-[15.5px]
               sm:leading-7
               md:text-[16px]
               lg:text-[17px]
             "
           >
-            {siteConfig.name} delivers security systems, food supply,
-            logistics, branding, interior finishing and contracting solutions
-            to businesses across Nigeria — built on one standard of quality
-            across every division.
+            {siteConfig.name} delivers security systems, food supply, logistics,
+            branding, interior finishing and contracting solutions to businesses
+            across Nigeria — built on one standard of quality across every
+            division.
           </p>
 
           {/* CTA Buttons */}
@@ -218,7 +198,7 @@ export default function Hero() {
           >
             <a
               href={whatsappLink(
-                "Hello Svetsedset Ventures, I'd like a free quote."
+                "Hello Svetsedset Ventures, I'd like a free quote.",
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -229,24 +209,24 @@ export default function Hero() {
                 items-center
                 justify-center
                 rounded-sm
-                bg-navy
+                bg-copper
                 px-5
                 py-3
                 text-center
                 text-[13.5px]
                 font-bold
                 text-white
-                shadow-[0_10px_30px_-12px_rgba(13,28,58,0.55)]
+                shadow-[0_10px_30px_-12px_rgba(0,0,0,0.65)]
                 transition-all
                 duration-200
                 hover:-translate-y-0.5
-                hover:bg-navy-deep
-                hover:shadow-[0_15px_35px_-12px_rgba(13,28,58,0.65)]
+                hover:bg-copper-light
+                hover:shadow-[0_15px_35px_-12px_rgba(0,0,0,0.75)]
                 active:translate-y-0
                 active:scale-[0.99]
                 focus-visible:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-navy
+                focus-visible:ring-copper
                 focus-visible:ring-offset-2
                 sm:w-auto
                 sm:px-5
@@ -267,25 +247,25 @@ export default function Hero() {
                 justify-center
                 rounded-sm
                 border
-                border-navy/80
-                bg-white/30
+                border-white/50
+                bg-white/10
                 px-5
                 py-3
                 text-center
                 text-[13.5px]
                 font-bold
-                text-navy
+                text-white
                 backdrop-blur-sm
                 transition-all
                 duration-200
                 hover:-translate-y-0.5
-                hover:bg-navy
-                hover:text-white
+                hover:bg-white
+                hover:text-navy
                 active:translate-y-0
                 active:scale-[0.99]
                 focus-visible:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-navy
+                focus-visible:ring-white
                 focus-visible:ring-offset-2
                 sm:w-auto
                 md:px-6
@@ -300,6 +280,7 @@ export default function Hero() {
         {/* =========================
             WHAT WE DO CARD
         ========================== */}
+
         <div
           className="
             relative
@@ -307,11 +288,12 @@ export default function Hero() {
             overflow-hidden
             rounded-lg
             border
-            border-white/10
-            bg-[linear-gradient(145deg,#152b54_0%,#0d1c3a_55%,#09152d_100%)]
+            border-white/15
+            bg-[linear-gradient(145deg,rgba(21,43,84,0.96)_0%,rgba(13,28,58,0.96)_55%,rgba(9,21,45,0.97)_100%)]
             p-5
             text-white
-            shadow-[0_30px_80px_-25px_rgba(13,28,58,0.55)]
+            shadow-[0_30px_80px_-25px_rgba(0,0,0,0.65)]
+            backdrop-blur-md
             sm:p-6
             md:p-7
             lg:p-8
@@ -382,6 +364,9 @@ export default function Hero() {
                   text-[12.5px]
                   leading-5
                   text-white/90
+                  transition-colors
+                  duration-200
+                  hover:text-white
                   sm:text-[13px]
                   md:text-[13.5px]
                   ${
@@ -412,13 +397,19 @@ export default function Hero() {
             className="
               mt-5
               grid
-              grid-cols-3
+              grid-cols-2
               border-t
               border-white/15
             "
           >
             {/* Divisions */}
-            <div className="min-w-0 py-4 pr-2 sm:pr-3">
+            <div
+              className="
+                min-w-0
+                py-4
+                pr-4
+              "
+            >
               <b
                 className="
                   block
@@ -450,7 +441,6 @@ export default function Hero() {
               </small>
             </div>
 
-        
             {/* Location */}
             <div
               className="
@@ -458,8 +448,7 @@ export default function Hero() {
                 border-l
                 border-white/15
                 py-4
-                pl-2
-                sm:pl-3
+                pl-4
               "
             >
               <b
@@ -509,7 +498,7 @@ export default function Hero() {
           right-0
           h-16
           bg-linear-to-t
-          from-paper/35
+          from-navy-deep/40
           to-transparent
         "
       />

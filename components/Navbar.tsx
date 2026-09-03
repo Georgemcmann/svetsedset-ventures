@@ -118,8 +118,8 @@ export default function Navbar() {
               <Image
                 src="/logo-icon.png"
                 alt=""
-                width={220}
-                height={205}
+                width={240}
+                height={235}
                 priority
                 className="
                   h-8
@@ -153,7 +153,7 @@ export default function Navbar() {
               <span
                 className="
                   font-display
-                  text-[16px]
+                  text-[18px]
                   font-bold
                   tracking-[-0.02em]
                   text-navy

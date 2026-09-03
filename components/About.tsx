@@ -151,23 +151,7 @@ export default function About() {
 
         {/* About Content */}
         <div className="max-w-162.5">
-          <p
-            className="
-              mb-4
-              text-[16px]
-              font-semibold
-              leading-7
-              text-ink
-              sm:text-[17px]
-              sm:leading-7
-            "
-          >
-            Svetsedset Ventures was incorporated in 2023 in Lagos, Nigeria,
-            out of a simple observation: businesses were tired of managing a
-            different contractor for every need — one company for security,
-            another for supply, another for finishing.
-          </p>
-
+          
           <p
             className="
               mb-4
